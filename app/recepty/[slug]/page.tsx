@@ -37,7 +37,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 <p className="mb-2 text-3xl font-bold">{recipeData.title}</p>
             </Copyable>
 
-            <div className="border-primary mb-4 flex gap-6 border-b pb-4">
+            <div className="mb-4 flex gap-6 border-b border-primary pb-4">
                 <div className="flex items-center gap-2">
                     <CalendarDays className="size-5" />
                     <p className="text-sm text-gray-500">{recipeData.date}</p>
@@ -51,7 +51,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
                     <h2 className="sr-only">{recipeData.title}</h2>
-                    <div className="bg-primary h-96 w-full"></div>
+                    <div className="h-96 w-full bg-primary"></div>
 
                     <Ingredients recipeData={recipeData} />
 

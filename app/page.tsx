@@ -17,7 +17,7 @@ export default function Home() {
                         {recipe.tags && (
                             <ul className="flex gap-2">
                                 {recipe.tags.map((tag) => (
-                                    <li key={tag} className="text-muted-foreground text-sm">
+                                    <li key={tag} className="text-sm text-muted-foreground">
                                         {tag}
                                     </li>
                                 ))}

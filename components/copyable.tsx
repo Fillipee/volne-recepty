@@ -2,6 +2,7 @@
 
 import { Link } from 'lucide-react';
 import { Button } from './ui/button';
+import { toast } from 'sonner';
 
 type Props = {
     children: React.ReactNode;
@@ -11,6 +12,7 @@ type Props = {
 export default function Copyable({ children, link }: Props) {
     const handleClick = () => {
         navigator.clipboard.writeText(link);
+        toast('Odaz na recept byl zkopírován do schránky.');
     };
 
     return (

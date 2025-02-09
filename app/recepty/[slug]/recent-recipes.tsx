@@ -17,10 +17,10 @@ export default function RecentRecipes() {
 const RecentRecipe = () => {
     return (
         <div className="grid grid-cols-[40%_1fr] gap-2">
-            <div className="bg-primary h-24"></div>
+            <div className="h-24 bg-primary"></div>
             <hgroup className="flex flex-col gap-1">
                 <h4 className="font-semibold">Tvarohová bábovka</h4>
-                <p className="text-muted-foreground flex items-center gap-2">
+                <p className="flex items-center gap-2 text-muted-foreground">
                     <Clock className="size-5" />
                     <span>1h 30 min</span>
                 </p>

@@ -1,6 +1,6 @@
 export default function NutritionTable() {
     return (
-        <section className="bg-muted rounded p-4">
+        <section className="rounded bg-muted p-4">
             <table className="w-full">
                 <thead>
                     <tr>
@@ -10,20 +10,20 @@ export default function NutritionTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="border-border border-b">
-                        <td className="text-muted-foreground pt-2">Kalorie</td>
+                    <tr className="border-b border-border">
+                        <td className="pt-2 text-muted-foreground">Kalorie</td>
                         <td className="pt-2 text-right font-semibold">200</td>
                     </tr>
-                    <tr className="border-border border-b">
-                        <td className="text-muted-foreground pt-2">Tuky</td>
+                    <tr className="border-b border-border">
+                        <td className="pt-2 text-muted-foreground">Tuky</td>
                         <td className="pt-2 text-right font-semibold">10g</td>
                     </tr>
-                    <tr className="border-border border-b">
-                        <td className="text-muted-foreground pt-2">Sacharidy</td>
+                    <tr className="border-b border-border">
+                        <td className="pt-2 text-muted-foreground">Sacharidy</td>
                         <td className="pt-2 text-right font-semibold">20g</td>
                     </tr>
-                    <tr className="border-border border-b">
-                        <td className="text-muted-foreground pt-2">Bílkoviny</td>
+                    <tr className="border-b border-border">
+                        <td className="pt-2 text-muted-foreground">Bílkoviny</td>
                         <td className="pt-2 text-right font-semibold">10g</td>
                     </tr>
                 </tbody>
