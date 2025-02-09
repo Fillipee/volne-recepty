@@ -26,20 +26,39 @@ export default function Ingredients({ recipeData }: Props) {
         <section>
             <h3 className="my-2 text-2xl font-semibold">Ingredients</h3>
             <ul className="list-inside">
-                {recipeData.ingredients?.map((ingredient) => {
-                    const isChecked = checkedIngredients.includes(ingredient);
+                {recipeData.ingredients?.map((ingredient, index) => {
+                    if (typeof ingredient === 'string') {
+                        const uniqueKey = `${ingredient}-${index}`;
+                        const isChecked = checkedIngredients.includes(uniqueKey);
+
+                        return (
+                            <Ingredient
+                                key={uniqueKey}
+                                ingredient={ingredient}
+                                isChecked={isChecked}
+                                handleIngredientClick={() => handleIngredientClick(uniqueKey)}
+                            />
+                        );
+                    }
 
                     return (
-                        <li
-                            key={ingredient}
-                            onClick={() => handleIngredientClick(ingredient)}
-                            className={cn(
-                                'flex cursor-pointer items-center gap-2',
-                                isChecked && 'text-muted-foreground line-through',
-                            )}
-                        >
-                            <Checkbox checked={isChecked} />
-                            {ingredient}
+                        <li key={ingredient.title} className="my-2">
+                            <h4 className="text-lg font-semibold">{ingredient.title}</h4>
+                            <ul className="list-inside">
+                                {ingredient.items.map((subIngredient, subIndex) => {
+                                    const uniqueKey = `${subIngredient}-${index}-${subIndex}`;
+                                    const isChecked = checkedIngredients.includes(uniqueKey);
+
+                                    return (
+                                        <Ingredient
+                                            key={uniqueKey}
+                                            ingredient={subIngredient}
+                                            isChecked={isChecked}
+                                            handleIngredientClick={() => handleIngredientClick(uniqueKey)}
+                                        />
+                                    );
+                                })}
+                            </ul>
                         </li>
                     );
                 })}
@@ -47,3 +66,25 @@ export default function Ingredients({ recipeData }: Props) {
         </section>
     );
 }
+
+type IngredientProps = {
+    ingredient: string;
+    isChecked: boolean;
+    handleIngredientClick: (ingredient: string) => void;
+};
+
+const Ingredient = ({ ingredient, isChecked, handleIngredientClick }: IngredientProps) => {
+    return (
+        <li
+            key={ingredient}
+            onClick={() => handleIngredientClick(ingredient)}
+            className={cn(
+                'flex cursor-pointer items-center gap-2',
+                isChecked && 'text-muted-foreground line-through',
+            )}
+        >
+            <Checkbox checked={isChecked} />
+            {ingredient}
+        </li>
+    );
+};
