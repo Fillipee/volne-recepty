@@ -24,7 +24,7 @@ export default function Ingredients({ recipeData }: Props) {
 
     return (
         <section>
-            <h3 className="my-2 text-2xl font-semibold">Ingredients</h3>
+            <h3 className="my-2 text-2xl font-semibold">Ingredience</h3>
             <ul className="list-inside">
                 {recipeData.ingredients?.map((ingredient, index) => {
                     if (typeof ingredient === 'string') {

@@ -1,30 +1,55 @@
+import { Badge } from '@/components/ui/badge';
+import { getSortedRecipesData } from '@/lib/recipes';
+import { RecipeData } from '@/lib/types';
+import { getBaseUrl } from '@/lib/utils';
 import { Clock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function RecentRecipes() {
+    const recipes: RecipeData[] = getSortedRecipesData(6);
+
     return (
         <section className="flex flex-col gap-4">
             <h3 className="text-lg font-semibold">Nedávné recepty</h3>
             <ul className="space-y-4">
-                <RecentRecipe />
-                <RecentRecipe />
-                <RecentRecipe />
-                <RecentRecipe />
+                {recipes.map((recipe) => (
+                    <li key={recipe.slug}>
+                        <RecentRecipe recipe={recipe} />
+                    </li>
+                ))}
             </ul>
         </section>
     );
 }
 
-const RecentRecipe = () => {
+type RecentRecipeProps = {
+    recipe: RecipeData;
+};
+
+const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
+    const recipeLink = `${getBaseUrl()}/recepty/${recipe.slug}`;
+
     return (
-        <div className="grid grid-cols-[40%_1fr] gap-2">
+        <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">
             <div className="h-24 bg-primary"></div>
-            <hgroup className="flex flex-col gap-1">
-                <h4 className="font-semibold">Tvarohová bábovka</h4>
-                <p className="flex items-center gap-2 text-muted-foreground">
-                    <Clock className="size-5" />
-                    <span>1h 30 min</span>
-                </p>
+            <hgroup className="flex flex-col">
+                <h4 className="font-semibold">{recipe.title}</h4>
+                {recipe.tags && (
+                    <ul className="flex gap-2">
+                        {recipe.tags.map((tag) => (
+                            <li key={tag} className="text-sm text-muted-foreground">
+                                <Badge variant="secondary">{tag}</Badge>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                {recipe.timeToCook && (
+                    <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="size-4" />
+                        <span>1h 30 min</span>
+                    </p>
+                )}
             </hgroup>
-        </div>
+        </Link>
     );
 };
