@@ -21,6 +21,13 @@ ingredients:
         { title: 'Náplň', items: ['60g třtinového cukru', 'špetka soli', 'skořice', '50g másla'] },
         { title: 'Poleva', items: ['120g philadelphie', '50g másla', '1 hrnek moučkového cukru', 'vanilka'] },
     ]
+nutritions:
+    [
+        { name: 'Kalorie', value: '200' },
+        { name: 'Tuky', value: '10g' },
+        { name: 'Sacharidy', value: '20g' },
+        { name: 'Bílkoviny', value: '10g' },
+    ]
 ---
 
 ## Postup

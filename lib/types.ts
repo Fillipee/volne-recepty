@@ -5,7 +5,13 @@ export type RecipeData = {
     timeToCook?: string;
     tags?: string[];
     ingredients?: Ingredient[];
+    nutritions?: Nutrition[];
     contentHtml?: string;
 };
 
 type Ingredient = string | { title: string; items: string[] };
+
+type Nutrition = {
+    name: string;
+    value: string;
+};

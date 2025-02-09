@@ -1,4 +1,14 @@
-export default function NutritionTable() {
+import { RecipeData } from '@/lib/types';
+
+type Props = {
+    recipeData: RecipeData;
+};
+
+export default function NutritionTable({ recipeData }: Props) {
+    if (!recipeData.nutritions) {
+        return null;
+    }
+
     return (
         <section className="rounded bg-muted p-4">
             <table className="w-full">
@@ -10,22 +20,12 @@ export default function NutritionTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="border-b border-border">
-                        <td className="pt-2 text-muted-foreground">Kalorie</td>
-                        <td className="pt-2 text-right font-semibold">200</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                        <td className="pt-2 text-muted-foreground">Tuky</td>
-                        <td className="pt-2 text-right font-semibold">10g</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                        <td className="pt-2 text-muted-foreground">Sacharidy</td>
-                        <td className="pt-2 text-right font-semibold">20g</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                        <td className="pt-2 text-muted-foreground">Bílkoviny</td>
-                        <td className="pt-2 text-right font-semibold">10g</td>
-                    </tr>
+                    {recipeData.nutritions.map((nutrition, index) => (
+                        <tr key={index} className="border-b border-border">
+                            <td className="pt-2 text-muted-foreground">{nutrition.name}</td>
+                            <td className="pt-2 text-right font-semibold">{nutrition.value}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </section>

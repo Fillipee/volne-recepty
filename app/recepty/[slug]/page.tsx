@@ -69,7 +69,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 </article>
                 <div className="flex flex-col gap-8 p-2">
                     <RecipeTags recipeData={recipeData} />
-                    <NutritionTable />
+                    {recipeData.nutritions && <NutritionTable recipeData={recipeData} />}
                     <RecentRecipes />
                 </div>
             </div>
