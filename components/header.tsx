@@ -6,7 +6,8 @@ export default function Header() {
         <header className="mx-auto flex max-w-screen-lg items-center justify-between p-4">
             <h1 className="text-4xl font-bold">
                 <Link href="/" className="flex items-center gap-3">
-                    <Utensils className="fill-black" /> Volné Recepty
+                    <Utensils className="fill-primary stroke-primary" />
+                    <span className="text-primary">Volné</span> Recepty
                 </Link>
             </h1>
             <nav>
