@@ -6,6 +6,8 @@ import Ingredients from './ingredients';
 import RecentRecipes from './recent-recipes';
 import NutritionTable from './nutrition-table';
 import RecipeTags from './recipe-tags';
+import Copyable from '@/components/copyable';
+import { getBaseUrl } from '@/lib/utils';
 
 export async function generateStaticParams() {
     const recipes = getSortedRecipesData();
@@ -27,9 +29,13 @@ export default async function PostPage({ params }: PostPageProps) {
         notFound();
     }
 
+    const link = `${getBaseUrl()}/recepty/${slug}`;
+
     return (
         <div className="mx-auto max-w-screen-lg p-4">
-            <p className="mb-2 text-3xl font-bold">{recipeData.title}</p>
+            <Copyable link={link}>
+                <p className="mb-2 text-3xl font-bold">{recipeData.title}</p>
+            </Copyable>
 
             <div className="border-primary mb-4 flex gap-6 border-b pb-4">
                 <div className="flex items-center gap-2">
@@ -42,7 +48,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_400px]">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
                     <h2 className="sr-only">{recipeData.title}</h2>
                     <div className="bg-primary h-96 w-full"></div>
