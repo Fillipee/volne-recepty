@@ -51,7 +51,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
                     <ul className="flex gap-2">
                         {recipe.tags.map((tag) => (
                             <li key={tag} className="text-sm text-muted-foreground">
-                                <Badge variant="secondary">{tag}</Badge>
+                                <Badge>{tag}</Badge>
                             </li>
                         ))}
                     </ul>

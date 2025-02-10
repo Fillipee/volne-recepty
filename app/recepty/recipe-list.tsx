@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { RecipeData } from '@/lib/types';
+import { Badge } from '@/components/ui/badge';
 
 interface TagFilterProps {
     tags: string[];
@@ -46,15 +47,8 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
                     <div key={slug} className="mb-8 border-b pb-4">
                         <Link href={`/recepty/${slug}`}>{title}</Link>
                         <p className="text-sm text-gray-500">{date}</p>
-                        <div className="mt-2">
-                            {tags?.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="mr-2 inline-block rounded bg-blue-100 px-2 py-1 text-xs text-blue-800"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
+                        <div className="mt-2 flex gap-2">
+                            {tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
                         </div>
                     </div>
                 ))}
