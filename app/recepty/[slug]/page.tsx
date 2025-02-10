@@ -8,7 +8,6 @@ import NutritionTable from './nutrition-table';
 import RecipeTags from './recipe-tags';
 import Copyable from '@/components/copyable';
 import { getBaseUrl } from '@/lib/utils';
-import { format } from 'date-fns';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -44,7 +43,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     {recipeData.date && (
                         <div className="flex items-center gap-2 text-muted-foreground">
                             <CalendarDays className="size-5" />
-                            <p className="text-sm">{format(new Date(recipeData.date), 'd. M. y')}</p>
+                            <p className="text-sm">{new Date(recipeData.date).toLocaleDateString('cs-CZ')}</p>
                         </div>
                     )}
                     {recipeData.timeToCook && (

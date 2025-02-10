@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { RecipeData } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { X } from 'lucide-react';
 
 interface TagFilterProps {
     tags: string[];
@@ -11,46 +14,73 @@ interface TagFilterProps {
 }
 
 export default function RecipeList({ tags, recipes }: TagFilterProps) {
-    const [selectedTag, setSelectedTag] = useState<string | null>(null);
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-    const filteredRecipes = selectedTag
-        ? recipes.filter((post) => post.tags && post.tags.includes(selectedTag))
-        : recipes;
+    const toggleTag = (tag: string) => {
+        setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]));
+    };
+
+    const filteredRecipes = recipes.filter(
+        (recipe) => selectedTags.length === 0 || selectedTags.every((tag) => recipe.tags?.includes(tag)),
+    );
 
     return (
         <>
             <section className="mb-6">
-                <div className="flex flex-wrap">
+                <h2 className="mb-2 text-xl font-semibold">Štítky</h2>
+                <div className="flex h-10 flex-wrap items-center gap-2">
                     {tags.map((tag) => (
-                        <button
+                        <Badge
                             key={tag}
-                            onClick={() => setSelectedTag(tag)}
-                            className={`mb-2 mr-2 rounded px-3 py-1 ${
-                                selectedTag === tag ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'
-                            }`}
+                            variant={selectedTags.includes(tag) ? 'default' : 'outline'}
+                            className={cn(
+                                'cursor-pointer transition-colors hover:bg-primary/90 hover:text-primary-foreground',
+                                selectedTags.includes(tag) && 'pr-2',
+                            )}
+                            onClick={() => toggleTag(tag)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => e.key === 'Enter' && toggleTag(tag)}
                         >
                             {tag}
-                        </button>
+                            {selectedTags.includes(tag) && <X className="ml-1 h-3 w-3" />}
+                        </Badge>
                     ))}
-                    {selectedTag && (
-                        <button
-                            onClick={() => setSelectedTag(null)}
-                            className="mb-2 mr-2 rounded bg-red-200 px-3 py-1 text-red-800"
+
+                    {selectedTags.length > 0 && (
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setSelectedTags([])}
+                            className="text-destructive hover:text-destructive/80"
                         >
-                            Clear Filter
-                        </button>
+                            Obnovit ({selectedTags.length})
+                        </Button>
                     )}
                 </div>
             </section>
+
             <section>
                 {filteredRecipes.map(({ slug, date, title, tags }) => (
-                    <div key={slug} className="mb-8 border-b pb-4">
-                        <Link href={`/recepty/${slug}`}>{title}</Link>
-                        <p className="text-sm text-gray-500">{date}</p>
-                        <div className="mt-2 flex gap-2">
-                            {tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
+                    <article key={slug} className="mb-8 border-b pb-4">
+                        <Link href={`/recepty/${slug}`} className="text-lg font-medium hover:underline">
+                            {title}
+                        </Link>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                            {new Date(date).toLocaleDateString('cs-CZ')}
+                        </p>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                            {tags?.map((tag) => (
+                                <Badge
+                                    key={tag}
+                                    variant={selectedTags.includes(tag) ? 'default' : 'outline'}
+                                    className="transition-colors"
+                                >
+                                    {tag}
+                                </Badge>
+                            ))}
                         </div>
-                    </div>
+                    </article>
                 ))}
             </section>
         </>
