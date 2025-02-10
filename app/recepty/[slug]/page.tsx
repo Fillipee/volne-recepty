@@ -9,6 +9,7 @@ import RecipeTags from './recipe-tags';
 import Copyable from '@/components/copyable';
 import { getBaseUrl } from '@/lib/utils';
 import { format } from 'date-fns';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
     const recipes = getSortedRecipesData();
@@ -43,7 +44,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     {recipeData.date && (
                         <div className="flex items-center gap-2 text-muted-foreground">
                             <CalendarDays className="size-5" />
-                            <p className="text-sm">{format(new Date(recipeData.date), 'd. M. Y')}</p>
+                            <p className="text-sm">{format(new Date(recipeData.date), 'd. M. y')}</p>
                         </div>
                     )}
                     {recipeData.timeToCook && (
@@ -57,8 +58,13 @@ export default async function PostPage({ params }: PostPageProps) {
 
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
-                    <h2 className="sr-only">{recipeData.title}</h2>
-                    <div className="h-96 w-full bg-primary"></div>
+                    <Image
+                        src={'/images/placeholder.png'}
+                        alt={recipeData.title}
+                        width={600}
+                        height={400}
+                        className="h-96 w-full object-cover"
+                    />
 
                     <Ingredients recipeData={recipeData} />
 
@@ -67,7 +73,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         dangerouslySetInnerHTML={{ __html: recipeData.contentHtml || '' }}
                     />
                 </article>
-                <div className="flex flex-col gap-8 p-2">
+                <div className="flex flex-col gap-8 px-2 pb-2">
                     <RecipeTags recipeData={recipeData} />
                     {recipeData.nutritions && <NutritionTable recipeData={recipeData} />}
                     <RecentRecipes />

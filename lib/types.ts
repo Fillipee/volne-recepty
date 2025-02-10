@@ -1,7 +1,7 @@
 export type RecipeData = {
     slug: string;
     title: string;
-    date?: string;
+    date: string;
     timeToCook?: string;
     tags?: string[];
     ingredients?: Ingredient[];

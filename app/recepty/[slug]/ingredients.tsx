@@ -83,7 +83,7 @@ const Ingredient = ({ ingredient, isChecked, handleIngredientClick }: Ingredient
                 isChecked && 'text-muted-foreground line-through',
             )}
         >
-            <Checkbox checked={isChecked} />
+            <Checkbox checked={isChecked} aria-label={`Označit ${ingredient} jako připravenou`} />
             {ingredient}
         </li>
     );

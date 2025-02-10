@@ -3,6 +3,7 @@ import { getSortedRecipesData } from '@/lib/recipes';
 import { RecipeData } from '@/lib/types';
 import { getBaseUrl } from '@/lib/utils';
 import { Clock } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function RecentRecipes() {
@@ -31,7 +32,13 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
 
     return (
         <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">
-            <div className="h-24 bg-primary"></div>
+            <Image
+                src={'/images/placeholder.png'}
+                alt={recipe.title}
+                width={600}
+                height={400}
+                className="h-24 w-full object-cover"
+            />
             <hgroup className="flex flex-col">
                 <h4 className="font-semibold">{recipe.title}</h4>
                 {recipe.tags && (
@@ -46,7 +53,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
                 {recipe.timeToCook && (
                     <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
                         <Clock className="size-4" />
-                        <span>1h 30 min</span>
+                        <span>{recipe.timeToCook}</span>
                     </p>
                 )}
             </hgroup>
