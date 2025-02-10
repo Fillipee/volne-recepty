@@ -6,8 +6,14 @@ import { Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function RecentRecipes() {
-    const recipes: RecipeData[] = getSortedRecipesData(6);
+type RecentRecipesProps = {
+    currentRecipe: RecipeData;
+};
+
+export default function RecentRecipes({ currentRecipe }: RecentRecipesProps) {
+    const recipes: RecipeData[] = getSortedRecipesData(6)
+        .filter((recipe) => recipe.slug !== currentRecipe.slug)
+        .slice(0, 5);
 
     return (
         <section className="flex flex-col gap-4">
