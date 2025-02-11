@@ -35,7 +35,9 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            <ChevronDown className="absolute bottom-8 left-1/2 h-12 w-12 -translate-x-1/2 animate-bounce text-white" />
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+                <ChevronDown className="h-12 w-12 animate-bounce text-white" />
+            </div>
         </section>
     );
 }
