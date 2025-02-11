@@ -58,7 +58,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
                     <Image
-                        src={'/images/placeholder.png'}
+                        src={`/images/recipes/${recipeData.image}`}
                         alt={recipeData.title}
                         width={600}
                         height={400}

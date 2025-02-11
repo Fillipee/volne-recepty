@@ -19,7 +19,7 @@ export default function NewestRecipes() {
                         <Link href={`/recepty/${recipe.slug}`} className="block">
                             <div className="relative aspect-video">
                                 <Image
-                                    src={'/images/placeholder.png'}
+                                    src={`/images/recipes/${recipe.image}`}
                                     alt={recipe.title}
                                     fill
                                     className="object-cover"

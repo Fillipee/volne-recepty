@@ -1,6 +1,7 @@
 ---
 title: 'Čokoládové sušenky'
 date: '2023-10-01'
+image: 'cookies.png'
 tags: ['pečení', 'dezert', 'sušenky']
 ingredients:
     [

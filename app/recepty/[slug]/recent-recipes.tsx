@@ -39,7 +39,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
     return (
         <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">
             <Image
-                src={'/images/placeholder.png'}
+                src={`/images/recipes/${recipe.image}`}
                 alt={recipe.title}
                 width={600}
                 height={400}

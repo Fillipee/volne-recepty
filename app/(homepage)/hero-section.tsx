@@ -7,10 +7,11 @@ export default function HeroSection() {
         <section className="relative h-screen min-h-[600px]">
             <div className="absolute inset-0 -z-10">
                 <Image
-                    src="/images/placeholder.png"
+                    src="/images/hero.jpg"
                     alt="Fresh baked goods"
-                    fill
+                    data-source="https://unsplash.com/@brookelark?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
                     className="object-cover object-center"
+                    fill
                     priority
                 />
                 <div className="absolute inset-0 bg-black/40" />

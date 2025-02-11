@@ -2,6 +2,7 @@ export type RecipeData = {
     slug: string;
     title: string;
     date: string;
+    image: string;
     timeToCook?: string;
     tags?: string[];
     ingredients?: Ingredient[];
