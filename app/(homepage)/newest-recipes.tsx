@@ -27,10 +27,12 @@ export default function NewestRecipes() {
                             </div>
                             <div className="bg-white p-6">
                                 <h3 className="mb-2 line-clamp-2 text-xl font-semibold">{recipe.title}</h3>
-                                <div className="mb-4 flex items-center gap-2 text-muted-foreground">
-                                    <Clock className="h-4 w-4" />
-                                    <span>{recipe.timeToCook}</span>
-                                </div>
+                                {recipe.timeToCook && (
+                                    <div className="mb-4 flex items-center gap-2 text-muted-foreground">
+                                        <Clock className="h-4 w-4" />
+                                        <span>{recipe.timeToCook}</span>
+                                    </div>
+                                )}
                                 {recipe.tags && (
                                     <div className="flex flex-wrap gap-2">
                                         {recipe.tags.map((tag) => (

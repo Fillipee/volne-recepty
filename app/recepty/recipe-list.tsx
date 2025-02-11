@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 interface TagFilterProps {
     tags: string[];
@@ -61,24 +62,35 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
             </section>
 
             <section>
-                {filteredRecipes.map(({ slug, date, title, tags }) => (
-                    <article key={slug} className="mb-8 border-b pb-4">
-                        <Link href={`/recepty/${slug}`} className="text-lg font-medium hover:underline">
-                            {title}
+                {filteredRecipes.map(({ slug, date, title, tags, image }) => (
+                    <article key={slug} className="flex gap-4 border-b border-border py-4">
+                        <Link href={`/recepty/${slug}`} className="overflow-hidden">
+                            <Image
+                                src={`/images/recipes/${image}`}
+                                alt={title}
+                                width={200}
+                                height={100}
+                                className="h-32 object-cover transition-transform hover:scale-105"
+                            />
                         </Link>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                            {new Date(date).toLocaleDateString('cs-CZ')}
-                        </p>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                            {tags?.map((tag) => (
-                                <Badge
-                                    key={tag}
-                                    variant={selectedTags.includes(tag) ? 'default' : 'outline'}
-                                    className="transition-colors"
-                                >
-                                    {tag}
-                                </Badge>
-                            ))}
+                        <div>
+                            <Link href={`/recepty/${slug}`} className="text-lg font-medium hover:underline">
+                                {title}
+                            </Link>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                                {new Date(date).toLocaleDateString('cs-CZ')}
+                            </p>
+                            <div className="mt-2 flex flex-wrap gap-2">
+                                {tags?.map((tag) => (
+                                    <Badge
+                                        key={tag}
+                                        variant={selectedTags.includes(tag) ? 'default' : 'outline'}
+                                        className="transition-colors"
+                                    >
+                                        {tag}
+                                    </Badge>
+                                ))}
+                            </div>
                         </div>
                     </article>
                 ))}
