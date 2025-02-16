@@ -3,6 +3,7 @@
 import { Link } from 'lucide-react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
+import { getBasePath } from '@/lib/utils';
 
 type Props = {
     children: React.ReactNode;
@@ -11,7 +12,7 @@ type Props = {
 
 export default function Copyable({ children, link }: Props) {
     const handleClick = () => {
-        const fullUrl = `${window.location.origin}${link}`;
+        const fullUrl = `${window.location.origin}${getBasePath()}${link}`;
 
         navigator.clipboard.writeText(fullUrl);
         toast('Odaz na recept byl zkopírován do schránky.');
