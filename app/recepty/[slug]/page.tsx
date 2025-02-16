@@ -8,6 +8,7 @@ import NutritionTable from './nutrition-table';
 import RecipeTags from './recipe-tags';
 import Copyable from '@/components/copyable';
 import Image from 'next/image';
+import { getBasePath } from '@/lib/utils';
 
 export async function generateStaticParams() {
     const recipes = getSortedRecipesData();
@@ -29,11 +30,9 @@ export default async function PostPage({ params }: PostPageProps) {
         notFound();
     }
 
-    const link = `/recepty/${slug}`;
-
     return (
         <div className="mx-auto max-w-screen-lg p-4">
-            <Copyable link={link}>
+            <Copyable link={`/recepty/${slug}`}>
                 <p className="mb-2 text-3xl font-bold">{recipeData.title}</p>
             </Copyable>
 
@@ -57,7 +56,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
                     <Image
-                        src={`/images/recipes/${recipeData.image}`}
+                        src={`${getBasePath()}/images/recipes/${recipeData.image}`}
                         alt={recipeData.title}
                         width={600}
                         height={400}

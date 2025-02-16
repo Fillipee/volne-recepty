@@ -11,7 +11,9 @@ type Props = {
 
 export default function Copyable({ children, link }: Props) {
     const handleClick = () => {
-        navigator.clipboard.writeText(link);
+        const fullUrl = `${window.location.origin}${link}`;
+
+        navigator.clipboard.writeText(fullUrl);
         toast('Odaz na recept byl zkopírován do schránky.');
     };
 

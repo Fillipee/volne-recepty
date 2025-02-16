@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { getSortedRecipesData } from '@/lib/recipes';
 import { RecipeData } from '@/lib/types';
+import { getBasePath } from '@/lib/utils';
 import { Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,7 +39,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
     return (
         <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">
             <Image
-                src={`/images/recipes/${recipe.image}`}
+                src={`${getBasePath()}/images/recipes/${recipe.image}`}
                 alt={recipe.title}
                 width={600}
                 height={400}

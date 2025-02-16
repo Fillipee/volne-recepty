@@ -3,6 +3,7 @@ import { RecipeData } from '@/lib/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Clock } from 'lucide-react';
+import { getBasePath } from '@/lib/utils';
 
 export default function NewestRecipes() {
     const recipes: RecipeData[] = getSortedRecipesData(6);
@@ -19,7 +20,7 @@ export default function NewestRecipes() {
                     >
                         <div className="relative aspect-video">
                             <Image
-                                src={`/images/recipes/${recipe.image}`}
+                                src={`${getBasePath()}/images/recipes/${recipe.image}`}
                                 alt={recipe.title}
                                 fill
                                 className="object-cover"

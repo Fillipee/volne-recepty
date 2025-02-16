@@ -1,3 +1,4 @@
+import { getBasePath } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,7 +17,7 @@ export default function Categories() {
                     >
                         <div className="aspect-square">
                             <Image
-                                src={`/images/placeholder.png`}
+                                src={`${getBasePath()}/images/placeholder.png`}
                                 alt={category}
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
