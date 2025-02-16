@@ -21,7 +21,7 @@ export default function Copyable({ children, link }: Props) {
             <Button
                 variant="ghost"
                 onClick={handleClick}
-                className="h-auto rounded-full p-3 opacity-0 transition-opacity duration-100 group-hover:opacity-100"
+                className="h-auto rounded-full p-3 opacity-0 transition-opacity duration-100 focus:opacity-100 group-hover:opacity-100"
             >
                 <Link />
             </Button>

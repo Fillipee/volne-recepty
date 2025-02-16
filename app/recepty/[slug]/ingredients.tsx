@@ -25,7 +25,7 @@ export default function Ingredients({ recipeData }: Props) {
     return (
         <section>
             <h3 className="my-2 text-2xl font-semibold">Ingredience</h3>
-            <ul className="list-inside">
+            <ul className="list-inside space-y-2">
                 {recipeData.ingredients?.map((ingredient, index) => {
                     if (typeof ingredient === 'string') {
                         const uniqueKey = `${ingredient}-${index}`;
@@ -43,8 +43,8 @@ export default function Ingredients({ recipeData }: Props) {
 
                     return (
                         <li key={ingredient.title} className="my-2">
-                            <h4 className="text-lg font-semibold">{ingredient.title}</h4>
-                            <ul className="list-inside">
+                            <h4 className="my-2 text-lg font-semibold">{ingredient.title}</h4>
+                            <ul className="list-inside space-y-2">
                                 {ingredient.items.map((subIngredient, subIndex) => {
                                     const uniqueKey = `${subIngredient}-${index}-${subIndex}`;
                                     const isChecked = checkedIngredients.includes(uniqueKey);
@@ -83,7 +83,11 @@ const Ingredient = ({ ingredient, isChecked, handleIngredientClick }: Ingredient
                 isChecked && 'text-muted-foreground line-through',
             )}
         >
-            <Checkbox checked={isChecked} aria-label={`Označit ${ingredient} jako připravenou`} />
+            <Checkbox
+                checked={isChecked}
+                aria-label={`Označit ${ingredient} jako připravenou`}
+                className="size-5"
+            />
             {ingredient}
         </li>
     );

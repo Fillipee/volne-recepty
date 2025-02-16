@@ -43,7 +43,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
                 alt={recipe.title}
                 width={600}
                 height={400}
-                className="h-24 w-full object-cover"
+                className="h-24 w-full object-cover md:h-40 lg:h-24"
             />
             <hgroup className="flex flex-col">
                 <h4 className="font-semibold">{recipe.title}</h4>
