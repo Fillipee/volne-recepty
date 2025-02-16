@@ -1,7 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { getSortedRecipesData } from '@/lib/recipes';
 import { RecipeData } from '@/lib/types';
-import { getBaseUrl } from '@/lib/utils';
 import { Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -34,7 +33,7 @@ type RecentRecipeProps = {
 };
 
 const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
-    const recipeLink = `${getBaseUrl()}/recepty/${recipe.slug}`;
+    const recipeLink = `/recepty/${recipe.slug}`;
 
     return (
         <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">

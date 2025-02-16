@@ -7,7 +7,6 @@ import RecentRecipes from './recent-recipes';
 import NutritionTable from './nutrition-table';
 import RecipeTags from './recipe-tags';
 import Copyable from '@/components/copyable';
-import { getBaseUrl } from '@/lib/utils';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
@@ -30,7 +29,7 @@ export default async function PostPage({ params }: PostPageProps) {
         notFound();
     }
 
-    const link = `${getBaseUrl()}/recepty/${slug}`;
+    const link = `/recepty/${slug}`;
 
     return (
         <div className="mx-auto max-w-screen-lg p-4">
