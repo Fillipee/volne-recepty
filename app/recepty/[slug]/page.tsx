@@ -10,6 +10,10 @@ import Copyable from '@/components/copyable';
 import Image from 'next/image';
 import { getBasePath } from '@/lib/utils';
 
+type PostPageProps = {
+    params: Promise<{ slug: string }>;
+};
+
 export async function generateStaticParams() {
     const recipes = getSortedRecipesData();
 
@@ -18,8 +22,13 @@ export async function generateStaticParams() {
     }));
 }
 
-interface PostPageProps {
-    params: Promise<{ slug: string }>;
+export async function generateMetadata({ params }: PostPageProps) {
+    const { slug } = await params;
+    const recipeData = await getRecipesData(slug);
+
+    return {
+        title: recipeData.title,
+    };
 }
 
 export default async function PostPage({ params }: PostPageProps) {

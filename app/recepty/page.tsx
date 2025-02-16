@@ -2,6 +2,10 @@ import { getAllTags, getSortedRecipesData } from '@/lib/recipes';
 import { RecipeData } from '@/lib/types';
 import RecipeList from './recipe-list';
 
+export const metadata = {
+    title: 'Recepty',
+};
+
 export default function RecipesPage() {
     const recipes: RecipeData[] = getSortedRecipesData();
     const tags: string[] = getAllTags();
