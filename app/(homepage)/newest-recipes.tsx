@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Clock } from 'lucide-react';
 import { getBasePath } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
 export default function NewestRecipes() {
     const recipes: RecipeData[] = getSortedRecipesData(6);
@@ -37,12 +38,9 @@ export default function NewestRecipes() {
                             {recipe.tags && (
                                 <div className="flex flex-wrap gap-2">
                                     {recipe.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="bg-accent rounded-full px-3 py-1 text-xs font-medium"
-                                        >
+                                        <Badge key={tag} variant="secondary">
                                             {tag}
-                                        </span>
+                                        </Badge>
                                     ))}
                                 </div>
                             )}

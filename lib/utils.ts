@@ -8,3 +8,11 @@ export function cn(...inputs: ClassValue[]) {
 export function getBasePath() {
     return '/volne-recepty';
 }
+
+export function normalizeString(str: string) {
+    return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .toLowerCase();
+}
