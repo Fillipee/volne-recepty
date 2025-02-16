@@ -37,15 +37,15 @@ export default async function PostPage({ params }: PostPageProps) {
             </Copyable>
 
             {(recipeData.date || recipeData.timeToCook) && (
-                <div className="mb-4 flex gap-6 border-b border-primary pb-4">
+                <div className="border-primary mb-4 flex gap-6 border-b pb-4">
                     {recipeData.date && (
-                        <div className="flex items-center gap-2 text-muted-foreground">
+                        <div className="text-muted-foreground flex items-center gap-2">
                             <CalendarDays className="size-5" />
                             <p className="text-sm">{new Date(recipeData.date).toLocaleDateString('cs-CZ')}</p>
                         </div>
                     )}
                     {recipeData.timeToCook && (
-                        <div className="flex items-center gap-2 text-muted-foreground">
+                        <div className="text-muted-foreground flex items-center gap-2">
                             <Clock className="size-5" />
                             <p className="text-sm">{recipeData.timeToCook}</p>
                         </div>

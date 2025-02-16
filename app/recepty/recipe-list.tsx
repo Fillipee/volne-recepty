@@ -35,7 +35,7 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
                             key={tag}
                             variant={selectedTags.includes(tag) ? 'default' : 'outline'}
                             className={cn(
-                                'cursor-pointer transition-colors hover:bg-primary/90 hover:text-primary-foreground',
+                                'hover:bg-primary/90 hover:text-primary-foreground cursor-pointer transition-colors',
                                 selectedTags.includes(tag) && 'pr-2',
                             )}
                             onClick={() => toggleTag(tag)}
@@ -63,7 +63,7 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
 
             <section>
                 {filteredRecipes.map(({ slug, date, title, tags, image }) => (
-                    <article key={slug} className="flex gap-4 border-b border-border py-4">
+                    <article key={slug} className="border-border flex gap-4 border-b py-4">
                         <Link href={`/recepty/${slug}`} className="overflow-hidden">
                             <Image
                                 src={`${getBasePath()}/images/recipes/${image}`}
@@ -77,7 +77,7 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
                             <Link href={`/recepty/${slug}`} className="text-lg font-medium hover:underline">
                                 {title}
                             </Link>
-                            <p className="mt-1 text-sm text-muted-foreground">
+                            <p className="text-muted-foreground mt-1 text-sm">
                                 {new Date(date).toLocaleDateString('cs-CZ')}
                             </p>
                             <div className="mt-2 flex flex-wrap gap-2">

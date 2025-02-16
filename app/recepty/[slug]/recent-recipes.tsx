@@ -50,14 +50,14 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
                 {recipe.tags && (
                     <ul className="flex gap-2">
                         {recipe.tags.map((tag) => (
-                            <li key={tag} className="text-sm text-muted-foreground">
+                            <li key={tag} className="text-muted-foreground text-sm">
                                 <Badge>{tag}</Badge>
                             </li>
                         ))}
                     </ul>
                 )}
                 {recipe.timeToCook && (
-                    <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                    <p className="text-muted-foreground mt-2 flex items-center gap-2 text-sm">
                         <Clock className="size-4" />
                         <span>{recipe.timeToCook}</span>
                     </p>

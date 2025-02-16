@@ -29,7 +29,7 @@ export default function NewestRecipes() {
                         <div className="bg-white p-6">
                             <h3 className="mb-2 line-clamp-2 text-xl font-semibold">{recipe.title}</h3>
                             {recipe.timeToCook && (
-                                <div className="mb-4 flex items-center gap-2 text-muted-foreground">
+                                <div className="text-muted-foreground mb-4 flex items-center gap-2">
                                     <Clock className="h-4 w-4" />
                                     <span>{recipe.timeToCook}</span>
                                 </div>
@@ -39,7 +39,7 @@ export default function NewestRecipes() {
                                     {recipe.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="rounded-full bg-accent px-3 py-1 text-xs font-medium"
+                                            className="bg-accent rounded-full px-3 py-1 text-xs font-medium"
                                         >
                                             {tag}
                                         </span>

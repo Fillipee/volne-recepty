@@ -29,7 +29,7 @@ export default function HeroSection() {
                     <div className="mt-8 flex justify-center gap-4">
                         <Link
                             href="/recepty"
-                            className="rounded-full bg-primary px-8 py-3 font-semibold text-white transition-transform hover:scale-105"
+                            className="bg-primary rounded-full px-8 py-3 font-semibold text-white transition-transform hover:scale-105"
                         >
                             Prohlédnout recepty
                         </Link>
@@ -37,7 +37,7 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+            <div className="absolute right-0 bottom-8 left-0 flex justify-center">
                 <ChevronDown className="h-12 w-12 animate-bounce text-white" />
             </div>
         </section>

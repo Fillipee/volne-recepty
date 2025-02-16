@@ -10,7 +10,7 @@ export default function NutritionTable({ recipeData }: Props) {
     }
 
     return (
-        <section className="rounded bg-muted p-4">
+        <section className="bg-muted rounded p-4">
             <table className="w-full">
                 <thead>
                     <tr>
@@ -21,8 +21,8 @@ export default function NutritionTable({ recipeData }: Props) {
                 </thead>
                 <tbody>
                     {recipeData.nutritions.map((nutrition, index) => (
-                        <tr key={index} className="border-b border-border">
-                            <td className="pt-2 text-muted-foreground">{nutrition.name}</td>
+                        <tr key={index} className="border-border border-b">
+                            <td className="text-muted-foreground pt-2">{nutrition.name}</td>
                             <td className="pt-2 text-right font-semibold">{nutrition.value}</td>
                         </tr>
                     ))}
