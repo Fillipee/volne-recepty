@@ -8,7 +8,7 @@ type Props = {
 export default function RecipeTags({ recipeData }: Props) {
     return (
         <section className="space-y-2">
-            <h4 className="text-left text-lg font-semibold">Štítky</h4>
+            <h3 className="text-left text-lg font-semibold">Štítky</h3>
             <div className="flex gap-2">
                 {recipeData.tags?.map((tag) => (
                     <Badge key={tag} variant="secondary">

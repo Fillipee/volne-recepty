@@ -33,7 +33,7 @@ export default async function PostPage({ params }: PostPageProps) {
     return (
         <div className="mx-auto max-w-screen-lg p-4">
             <Copyable link={`/recepty/${slug}`}>
-                <p className="mb-2 text-3xl font-bold">{recipeData.title}</p>
+                <h2 className="mb-2 text-3xl font-bold">{recipeData.title}</h2>
             </Copyable>
 
             {(recipeData.date || recipeData.timeToCook) && (

@@ -18,7 +18,7 @@ export default function Categories() {
                         <div className="aspect-square">
                             <Image
                                 src={`${getBasePath()}/images/placeholder.png`}
-                                alt={category}
+                                alt={`Kategorie - ${category}`}
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                             />
