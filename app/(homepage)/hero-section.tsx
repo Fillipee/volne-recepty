@@ -29,6 +29,7 @@ export default function HeroSection() {
                     <div className="mt-8 flex justify-center gap-4">
                         <Link
                             href="/recepty"
+                            prefetch={false}
                             className="bg-primary rounded-full px-8 py-3 font-semibold text-white transition-transform hover:scale-105"
                         >
                             Prohlédnout recepty

@@ -80,7 +80,7 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
             <section>
                 {filteredRecipes.map(({ slug, date, title, tags, image }) => (
                     <article key={slug} className="border-border flex gap-4 border-b py-4">
-                        <Link href={`/recepty/${slug}`} className="overflow-hidden">
+                        <Link href={`/recepty/${slug}`} prefetch={false} className="overflow-hidden">
                             <Image
                                 src={`${getBasePath()}/images/recipes/${image}`}
                                 alt={title}
@@ -90,7 +90,11 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
                             />
                         </Link>
                         <div>
-                            <Link href={`/recepty/${slug}`} className="text-lg font-medium hover:underline">
+                            <Link
+                                href={`/recepty/${slug}`}
+                                prefetch={false}
+                                className="text-lg font-medium hover:underline"
+                            >
                                 {title}
                             </Link>
                             <p className="text-muted-foreground mt-1 text-sm">

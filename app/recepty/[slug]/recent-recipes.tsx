@@ -37,7 +37,7 @@ const RecentRecipe = ({ recipe }: RecentRecipeProps) => {
     const recipeLink = `/recepty/${recipe.slug}`;
 
     return (
-        <Link href={recipeLink} className="grid grid-cols-[40%_1fr] gap-2">
+        <Link href={recipeLink} prefetch={false} className="grid grid-cols-[40%_1fr] gap-2">
             <Image
                 src={`${getBasePath()}/images/recipes/${recipe.image}`}
                 alt={recipe.title}

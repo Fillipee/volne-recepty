@@ -17,6 +17,7 @@ export default function NewestRecipes() {
                     <Link
                         key={recipe.slug}
                         href={`/recepty/${recipe.slug}`}
+                        prefetch={false}
                         className="group overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
                     >
                         <div className="relative aspect-video">
