@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getBasePath() {
-    return '/volne-recepty';
+    return '/zeru-to';
 }
 
 export function normalizeString(str: string) {

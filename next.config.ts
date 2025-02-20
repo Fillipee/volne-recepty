@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true,
     },
-    basePath: '/volne-recepty',
+    basePath: '/zeru-to',
 };
 
 export default nextConfig;

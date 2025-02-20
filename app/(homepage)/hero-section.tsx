@@ -21,7 +21,7 @@ export default function HeroSection() {
             <div className="flex h-full items-center pt-24 text-center">
                 <div className="mx-auto max-w-2xl px-4">
                     <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
-                        Vaše cesta k dokonalému vaření
+                        Vaše cesta k dokonalému žraní
                     </h1>
                     <p className="mx-auto mt-6 max-w-xl text-lg text-white/90 drop-shadow-sm">
                         Spousty receptů na jednom místě
