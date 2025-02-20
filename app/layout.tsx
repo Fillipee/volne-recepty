@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: 'Prázdný Talíř',
-        template: '%s | Prázdný Talíř',
+        default: 'Žeru To',
+        template: '%s | Žeru To',
     },
     description: 'Recepty na vaření, které můžete volně použít a sdílet.',
 };
