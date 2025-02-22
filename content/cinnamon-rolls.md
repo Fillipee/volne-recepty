@@ -2,7 +2,7 @@
 title: 'Cinnamon Rolls Royce'
 date: '2025-02-09'
 image: 'cinnamon-rolls.png'
-timeToCook: '1 hodina'
+timeToCook: '3 hodiny'
 tags: ['pečení', 'dezert']
 ingredients:
     [

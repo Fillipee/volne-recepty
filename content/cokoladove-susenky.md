@@ -2,10 +2,11 @@
 title: 'Čokoládové sušenky'
 date: '2023-10-01'
 image: 'cookies.png'
+timeToCook: '1 hodina'
 tags: ['pečení', 'dezert', 'sušenky']
 ingredients:
     [
-        '113g nesoleného másla, změklého',
+        '115g nesoleného másla, změklého',
         '100g krystalového cukru',
         '110g světlého hnědého cukru, pevně stlačeného',
         '1 velké vejce',
@@ -42,5 +43,3 @@ ingredients:
 - Pro žvýkavější sušenky přidejte navíc žloutek.
 - Pro křupavější sušenky použijte více krystalového cukru a méně hnědého cukru.
 - Sušenky skladujte v uzavřené nádobě při pokojové teplotě až jeden týden.
-
-Užijte si své domácí čokoládové sušenky!

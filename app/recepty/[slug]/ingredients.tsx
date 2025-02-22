@@ -86,7 +86,7 @@ const Ingredient = ({ ingredient, isChecked, handleIngredientClick }: Ingredient
             <Checkbox
                 checked={isChecked}
                 aria-label={`Označit ${ingredient} jako připravenou`}
-                className="size-5"
+                className="size-6"
             />
             {ingredient}
         </li>
