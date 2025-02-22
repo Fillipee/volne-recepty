@@ -5,10 +5,6 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export function getBasePath() {
-    return '/zeru-to';
-}
-
 export function normalizeString(str: string) {
     return str
         .normalize('NFD')

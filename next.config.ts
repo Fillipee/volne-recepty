@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true,
     },
-    basePath: '/zeru-to',
 };
 
 export default nextConfig;

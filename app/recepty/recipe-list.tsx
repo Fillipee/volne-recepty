@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { RecipeData } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { cn, getBasePath, normalizeString } from '@/lib/utils';
+import { cn, normalizeString } from '@/lib/utils';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
@@ -82,7 +82,7 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
                     <article key={slug} className="border-border flex gap-4 border-b py-4">
                         <Link href={`/recepty/${slug}`} prefetch={false} className="overflow-hidden">
                             <Image
-                                src={`${getBasePath()}/images/recipes/${image}`}
+                                src={`/images/recipes/${image}`}
                                 alt={title}
                                 width={200}
                                 height={100}

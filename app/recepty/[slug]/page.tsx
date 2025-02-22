@@ -8,7 +8,6 @@ import NutritionTable from './nutrition-table';
 import RecipeTags from './recipe-tags';
 import Copyable from '@/components/copyable';
 import Image from 'next/image';
-import { getBasePath } from '@/lib/utils';
 
 type PostPageProps = {
     params: Promise<{ slug: string }>;
@@ -65,7 +64,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_400px]">
                 <article>
                     <Image
-                        src={`${getBasePath()}/images/recipes/${recipeData.image}`}
+                        src={`/images/recipes/${recipeData.image}`}
                         alt={recipeData.title}
                         width={600}
                         height={400}

@@ -1,4 +1,3 @@
-import { getBasePath } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +7,7 @@ export default function HeroSection() {
         <section className="relative h-screen min-h-[600px]">
             <div className="absolute inset-0 -z-10">
                 <Image
-                    src={`${getBasePath()}/images/hero.jpg`}
+                    src={`/images/hero.jpg`}
                     alt="Fresh baked goods"
                     data-source="https://unsplash.com/@brookelark?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
                     className="object-cover object-center"

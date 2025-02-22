@@ -3,7 +3,6 @@ import { RecipeData } from '@/lib/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Clock } from 'lucide-react';
-import { getBasePath } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 
 export default function NewestRecipes() {
@@ -22,7 +21,7 @@ export default function NewestRecipes() {
                     >
                         <div className="relative aspect-video">
                             <Image
-                                src={`${getBasePath()}/images/recipes/${recipe.image}`}
+                                src={`/images/recipes/${recipe.image}`}
                                 alt={recipe.title}
                                 fill
                                 className="object-cover"
