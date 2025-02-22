@@ -17,7 +17,7 @@ ingredients:
     ]
 ---
 
-## Instrukce
+## Postup
 
 1. **Předehřejte** troubu na 190°C a vyložte plech pečicím papírem.
 
