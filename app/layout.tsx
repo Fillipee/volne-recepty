@@ -1,17 +1,12 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header';
 import { Toaster } from '@/components/ui/sonner';
 
-const geistSans = Geist({
-    variable: '--font-geist-sans',
+const geistSans = Montserrat({
     subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
+    weight: ['400', '500', '700'],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="cs">
-            <body className={`${geistSans.variable} ${geistMono.variable} mt-20 antialiased`}>
+            <body className={`${geistSans.className} mt-20 antialiased`}>
                 <Header />
                 {children}
                 <Toaster />
