@@ -1,6 +1,6 @@
 import { getAllTags, getSortedRecipesData } from '@/lib/recipes';
 import { RecipeData } from '@/lib/types';
-import RecipeList from './recipe-list';
+import Main from './main';
 
 export const metadata = {
     title: 'Recepty',
@@ -12,7 +12,7 @@ export default function RecipesPage() {
 
     return (
         <main className="mx-auto max-w-screen-lg p-4">
-            <RecipeList tags={tags} recipes={recipes} />
+            <Main recipes={recipes} tags={tags} />
         </main>
     );
 }
