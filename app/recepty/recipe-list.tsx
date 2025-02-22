@@ -40,53 +40,63 @@ export default function RecipeList({ tags, recipes }: TagFilterProps) {
 
     return (
         <>
-            <section className="mb-6">
-                <div className="flex items-center justify-between">
-                    <h2 className="mb-2 text-xl font-semibold">Štítky</h2>
-                    <Input id="recipe-name" label="Název" value={search} onChange={handleOnSearchChange} />
-                </div>
-                <div className="flex h-10 flex-wrap items-center gap-2">
-                    {tags.map((tag) => (
-                        <Badge
-                            key={tag}
-                            variant={selectedTags.includes(tag) ? 'default' : 'outline'}
-                            className={cn(
-                                'hover:bg-primary/90 hover:text-primary-foreground cursor-pointer transition-colors',
-                                selectedTags.includes(tag) && 'pr-2',
-                            )}
-                            onClick={() => toggleTag(tag)}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => e.key === 'Enter' && toggleTag(tag)}
-                        >
-                            {tag}
-                            {selectedTags.includes(tag) && <X className="ml-1 h-3 w-3" />}
-                        </Badge>
-                    ))}
-
-                    {selectedTags.length > 0 && (
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setSelectedTags([])}
-                            className="text-destructive hover:text-destructive/80"
-                        >
-                            Obnovit ({selectedTags.length})
-                        </Button>
-                    )}
+            <section>
+                <h2 className="mb-2 text-xl font-semibold">Filtr</h2>
+                <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2">
+                        <Input
+                            id="recipe-name"
+                            label="Název"
+                            value={search}
+                            onChange={handleOnSearchChange}
+                        />
+                        {selectedTags.length > 0 && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => setSelectedTags([])}
+                                className="text-destructive hover:text-destructive/80"
+                            >
+                                Obnovit ({selectedTags.length})
+                            </Button>
+                        )}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                            <Badge
+                                key={tag}
+                                variant={selectedTags.includes(tag) ? 'default' : 'outline'}
+                                className={cn(
+                                    'hover:bg-primary/90 hover:text-primary-foreground cursor-pointer transition-colors',
+                                    selectedTags.includes(tag) && 'pr-2',
+                                )}
+                                onClick={() => toggleTag(tag)}
+                                role="button"
+                                tabIndex={0}
+                                onKeyDown={(e) => e.key === 'Enter' && toggleTag(tag)}
+                            >
+                                {tag}
+                                {selectedTags.includes(tag) && <X className="ml-1 h-3 w-3" />}
+                            </Badge>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             <section>
                 {filteredRecipes.map(({ slug, date, title, tags, image }) => (
-                    <article key={slug} className="border-border flex gap-4 border-b py-4">
-                        <Link href={`/recepty/${slug}`} prefetch={false} className="overflow-hidden">
+                    <article key={slug} className="border-border grid gap-4 border-b py-4 sm:grid-cols-3">
+                        <Link
+                            href={`/recepty/${slug}`}
+                            prefetch={false}
+                            className="col-span-1 overflow-hidden"
+                        >
                             <Image
                                 src={`/images/recipes/${image}`}
                                 alt={title}
                                 width={200}
                                 height={100}
-                                className="h-32 object-cover transition-transform hover:scale-105"
+                                className="h-40 w-full object-cover transition-transform hover:scale-105"
                             />
                         </Link>
                         <div>
