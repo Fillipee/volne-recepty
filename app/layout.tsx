@@ -3,10 +3,11 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header';
 import { Toaster } from '@/components/ui/sonner';
+import Footer from '@/components/footer';
 
 const geistSans = Montserrat({
     subsets: ['latin'],
-    weight: ['400', '500', '700'],
+    weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
             <body className={`${geistSans.className} mt-20 antialiased`}>
                 <Header />
                 {children}
+                <Footer />
                 <Toaster />
             </body>
         </html>
