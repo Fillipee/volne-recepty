@@ -11,7 +11,7 @@ export default function RecipesPage() {
     const tags: string[] = getAllTags();
 
     return (
-        <main className="mx-auto max-w-screen-lg p-4">
+        <main className="mx-auto min-h-[calc(100dvh-160px)] max-w-screen-lg p-4">
             <Main recipes={recipes} tags={tags} />
         </main>
     );

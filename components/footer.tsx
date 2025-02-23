@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="border-primary mx-auto max-w-screen-lg border-t p-4">
+        <footer className="border-primary mx-auto flex h-20 max-w-screen-lg items-center border-t p-4">
             <Link
                 href="https://github.com/Fillipee/zeru-to"
                 target="_blank"
