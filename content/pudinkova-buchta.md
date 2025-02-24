@@ -1,7 +1,7 @@
 ---
 title: 'Pudinková buchta'
 date: '2025-02-24'
-image: 'pudinkova-buchta.png'
+image: 'pudinkova-buchta.jpg'
 timeToCook: '1 hodina 30 minut'
 tags: ['pečení', 'dezert', 'buchta']
 ingredients:
